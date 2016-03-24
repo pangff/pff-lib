@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+
+        <TextView android:layout_width="45dp"
+                  android:text="X:"
+                  android:layout_gravity="center_vertical"
+                  android:layout_height="wrap_content"/>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:id="@+id/sb_viewbox_width"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+
+        <TextView android:layout_width="45dp"
+                  android:text="Y:"
+                  android:layout_gravity="center_vertical"
+                  android:layout_height="wrap_content"/>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:id="@+id/sb_viewbox_height"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+
+        <TextView android:layout_width="45dp"
+                  android:text="Scale:"
+                  android:layout_gravity="center_vertical"
+                  android:layout_height="wrap_content"/>
+        <SeekBar
+                android:layout_width="match_parent"
+                android:id="@+id/sb_scale"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_draw_path"
+            android:text="高亮绘制指定路径"/>
+
+
+    <com.caverock.androidsvg.MyPathView
+            android:id="@+id/pathView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:svgRes="@raw/metro"
+            app:pathColor="@android:color/holo_red_dark"
+            app:pathWidth="@dimen/pathWidth"
+    />
+
+</LinearLayout>

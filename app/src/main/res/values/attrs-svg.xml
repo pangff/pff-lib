@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SVGImageView">
+        <!-- Location of the SVG document. -->
+        <attr name="svg" format="reference|string"/>
+    </declare-styleable>
+
+    <declare-styleable name="PathView">
+        <attr name="pathColor" format="color|reference"/>
+        <attr name="pathWidth" format="dimension|reference"/>
+        <attr name="svgRes" format="reference"/>
+        <attr name="fill" format="boolean"/>
+        <attr name="fillColor" format="color|reference"/>
+        <attr name="naturalColors" format="boolean"/>
+    </declare-styleable>
+
+</resources>

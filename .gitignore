@@ -1,0 +1,26 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration files
+local.properties
+
+# IDEA related
+.idea/
+*.iml
+
+# Mac OS X clutter
+*.DS_Store
+
+#Windwos clutter
+Thumb.db
+
+# Ingore files in app module
+app/build/
+
+# Ingore hprof and trance files
+captures/
+
+
+PythonTool/output_*/
+
