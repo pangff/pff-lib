@@ -3,7 +3,7 @@
 
 ## VectorPathView使用
 
-实现思路博客(http://www.pffair.com/blog/2016/03/24/shi-liang-tu-lu-jing-wen-ti-de-pathviewshi-xian-fang-an/)
+[详细实现思路博客](http://www.pffair.com/blog/2016/03/24/shi-liang-tu-lu-jing-wen-ti-de-pathviewshi-xian-fang-an/)
 
 #### 要实现一个地铁线路的路径绘制问题
 * 具体预研思路见[本人博客](http://www.pffair.com/blog/2016/03/11/svg-android/)
