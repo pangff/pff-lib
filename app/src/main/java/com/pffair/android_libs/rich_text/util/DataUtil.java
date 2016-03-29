@@ -13,9 +13,9 @@ public class DataUtil {
         String[] emoji = BaseApplication.mBaseApplication.getResources()
                 .getStringArray(R.array.emoji_code);
         String data =
-                "<font color=\"#FF0000\" style=\"\" text=\"asdfasdf\" /><stock name=\"上证指数\" code=\"123456\"  />阿电视发呆"
+                "<font color=\"#FF0000\" style=\"\" text=\"我是Font标签\" /><stock name=\"股票\" code=\"代码123456\"  />默认文本"
                         + emoji[0]
-                        + "adsfadsf<a href=\"http://www.baidu.com\" /><atuser uid=\"123456\" nick=\"用户名\"/> <lbs location=\"信安大厦\" /> <match id=\"12345\" text=\"优顾杯比赛\" />#Topic#";
+                        + "默认文本<a href=\"http://www.baidu.com\" alt=\"百度链接\" /><atuser uid=\"123456\" nick=\"用户XXX\"/> <lbs location=\"位置XXX\" /> #专题#";
         return data;
     }
 }
