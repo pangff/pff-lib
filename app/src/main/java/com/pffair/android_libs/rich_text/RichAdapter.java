@@ -7,7 +7,9 @@ import com.pffair.android_libs.rich_text.util.LinkTouchMovementMethod;
 import com.pffair.android_libs.rich_text.util.SpanClickListener;
 import com.pffair.android_libs.rich_text.util.TextParseUtil;
 
+import android.app.Activity;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,6 +82,12 @@ public class RichAdapter extends BaseAdapter {
         }
 
         public void bind(final String str) {
+            rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DetailActivity.start((Activity) v.getContext(),str);
+                }
+            });
             final int height = (int) (tvRich.getPaint().descent() - tvRich.getPaint().ascent());
             AsyncRichTextParser.parseText(str, height, new SpanClickListener() {
                 @Override
@@ -117,6 +125,7 @@ public class RichAdapter extends BaseAdapter {
             }, new AsyncRichTextParser.ParseListener() {
                 @Override
                 public void onParseFinished(final SpannableStringBuilder stringBuilder) {
+                    Log.e("pangff","stringBuilder.length():"+stringBuilder.length());
                     tvRich.setText(stringBuilder);
                     tvRich.setMovementMethod(new LinkTouchMovementMethod());
                 }

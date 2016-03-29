@@ -37,11 +37,12 @@ public class RichTextViewHolder extends PageViewHolder {
     public void onAttach(ViewGroup viewGroup) {
         RichAdapter richAdapter = new RichAdapter();
         lvRich.setAdapter(richAdapter);
-        List<String> dataList = new ArrayList<>();
+        final List<String> dataList = new ArrayList<>();
         for(int i=0;i<200;i++){
             dataList.add(DataUtil.getData());
         }
         richAdapter.refresh(dataList);
+
     }
 
 
