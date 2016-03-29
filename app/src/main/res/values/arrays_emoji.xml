@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="emoji_file">
+        <item>340</item>
+    </integer-array>
+    <string-array name="emoji_name_ch">
+        <item>汗</item>
+    </string-array>
+    <string-array name="emoji_code">
+        <item></item>
+    </string-array>
+</resources>

@@ -2,6 +2,7 @@ package com.pffair.android_libs;
 
 import com.pffair.android_libs.diff.DiffUseViewHolder;
 import com.pffair.android_libs.glide.GlideUseViewHolder;
+import com.pffair.android_libs.rich_text.RichTextViewHolder;
 import com.pffair.android_libs.statics.StaticsUseViewHolder;
 import com.pffair.android_libs.vector_drawable.VectorDrawableUseViewHolder;
 import com.pffair.android_libs.vector_path.VectorPathViewUseViewHolder;
@@ -96,6 +97,8 @@ public class MainActivity extends BaseActivity
             new VectorDrawableUseViewHolder(this).attach(rlMainView);
         }else if (id == R.id.nav_vector_path_view) {
             new VectorPathViewUseViewHolder(this).attach(rlMainView);
+        }else if (id == R.id.nav_rich_text_view) {
+            new RichTextViewHolder(this).attach(rlMainView);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
