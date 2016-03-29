@@ -28,7 +28,7 @@
 [android-pathview](https://github.com/geftimov/android-pathview)
 
 
-## TextView富文本（自定义标签的解析于实现）
+## TextView富文本（自定义标签的解析与实现）
 
 #### 实现富文本在TextView上的渲染
 * 支持stock、a、font、lbs、user标签，支持自定义emoji表情（目前只配置了一个）
