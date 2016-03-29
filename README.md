@@ -34,6 +34,6 @@
 * 支持stock、a、font、lbs、user标签，支持自定义emoji表情（目前只配置了一个）
 
 ####效果图如下
-![image](http://www.pffair.com/images/50.png)
+![image](https://github.com/pangff/pff-lib/blob/master/rich_text.png)
 
 如果要在项目中使用，请参考修改源码
