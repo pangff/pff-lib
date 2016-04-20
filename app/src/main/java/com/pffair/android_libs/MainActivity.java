@@ -6,6 +6,7 @@ import com.pffair.android_libs.rich_text.RichTextViewHolder;
 import com.pffair.android_libs.statics.StaticsUseViewHolder;
 import com.pffair.android_libs.vector_drawable.VectorDrawableUseViewHolder;
 import com.pffair.android_libs.vector_path.VectorPathViewUseViewHolder;
+import com.pffair.android_libs.xproxy.ProxyViewHolder;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -99,6 +100,8 @@ public class MainActivity extends BaseActivity
             new VectorPathViewUseViewHolder(this).attach(rlMainView);
         }else if (id == R.id.nav_rich_text_view) {
             new RichTextViewHolder(this).attach(rlMainView);
+        }else if (id == R.id.nav_xproxy) {
+            new ProxyViewHolder(this).attach(rlMainView);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

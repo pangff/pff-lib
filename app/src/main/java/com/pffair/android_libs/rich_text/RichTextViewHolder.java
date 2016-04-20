@@ -39,7 +39,7 @@ public class RichTextViewHolder extends PageViewHolder {
         lvRich.setAdapter(richAdapter);
         final List<String> dataList = new ArrayList<>();
         for(int i=0;i<200;i++){
-            dataList.add(DataUtil.getData());
+            dataList.add(DataUtil.getData2(i));
         }
         richAdapter.refresh(dataList);
 

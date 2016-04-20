@@ -1,21 +1,18 @@
 package com.pffair.android_libs.rich_text;
 
-import com.BaseApplication;
 import com.pffair.android_libs.R;
-import com.pffair.android_libs.rich_text.util.AsyncRichTextParser;
 import com.pffair.android_libs.rich_text.util.LinkTouchMovementMethod;
 import com.pffair.android_libs.rich_text.util.SpanClickListener;
 import com.pffair.android_libs.rich_text.util.TextParseUtil;
 
 import android.app.Activity;
+import android.support.v4.util.LruCache;
 import android.text.SpannableStringBuilder;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +78,15 @@ public class RichAdapter extends BaseAdapter {
             ButterKnife.bind(this, rootView);
         }
 
+
+        static LruCache<String, SpannableStringBuilder> cache = new LruCache<String, SpannableStringBuilder>(60) {
+            @Override
+            protected void entryRemoved(boolean evicted, String key, SpannableStringBuilder oldValue,
+                    SpannableStringBuilder newValue) {
+                cache.remove(key);
+            }
+        };
+
         public void bind(final String str) {
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,47 +95,65 @@ public class RichAdapter extends BaseAdapter {
                 }
             });
             final int height = (int) (tvRich.getPaint().descent() - tvRich.getPaint().ascent());
-            AsyncRichTextParser.parseText(str, height, new SpanClickListener() {
+//            if(cache.get(str)==null){
+//                SpannableStringBuilder stringBuilder = TextParseUtil.parseText(str, height, new SpanClickListener() {
+//                    @Override
+//                    public void onClicked(View view, String tag, Map data) {
+//
+//                    }
+//                });
+//                cache.put(str,stringBuilder);
+//            }
+            SpannableStringBuilder stringBuilder = TextParseUtil.parseText(str, height, new SpanClickListener() {
                 @Override
-                public void onClicked(final View view, final String tag, final Map data) {
-                    BaseApplication.mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (tag.equals(TextParseUtil.TAG_STOCK)) {
-                                Toast.makeText(view.getContext(), "点击" + data.get("name"),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                            if (tag.equals(TextParseUtil.TAG_A)) {
-                                Toast.makeText(view.getContext(), "点击链接", Toast.LENGTH_SHORT)
-                                        .show();
-                            }
-                            if (tag.equals(TextParseUtil.TAG_TOPIC)) {
-                                Toast.makeText(view.getContext(), "点击" + data.get("text"),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                            if (tag.equals(TextParseUtil.TAG_AT_USER)) {
-                                Toast.makeText(view.getContext(), "点击" + data.get("nick"),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                            if (tag.equals(TextParseUtil.TAG_USER)) {
-                                Toast.makeText(view.getContext(), "点击" + data.get("nick"),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                            if (tag.equals(TextParseUtil.TAG_MATCH)) {
-                                Toast.makeText(view.getContext(), "点击" + data.get("text"),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            }, new AsyncRichTextParser.ParseListener() {
-                @Override
-                public void onParseFinished(final SpannableStringBuilder stringBuilder) {
-                    Log.e("pangff","stringBuilder.length():"+stringBuilder.length());
-                    tvRich.setText(stringBuilder);
-                    tvRich.setMovementMethod(new LinkTouchMovementMethod());
+                public void onClicked(View view, String tag, Map data) {
+
                 }
             });
+
+            tvRich.setText(stringBuilder);
+            tvRich.setMovementMethod(new LinkTouchMovementMethod());
+//            AsyncRichTextParser.parseText(str, height, new SpanClickListener() {
+//                @Override
+//                public void onClicked(final View view, final String tag, final Map data) {
+//                    BaseApplication.mHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            if (tag.equals(TextParseUtil.TAG_STOCK)) {
+//                                Toast.makeText(view.getContext(), "点击" + data.get("name"),
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                            if (tag.equals(TextParseUtil.TAG_A)) {
+//                                Toast.makeText(view.getContext(), "点击链接", Toast.LENGTH_SHORT)
+//                                        .show();
+//                            }
+//                            if (tag.equals(TextParseUtil.TAG_TOPIC)) {
+//                                Toast.makeText(view.getContext(), "点击" + data.get("text"),
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                            if (tag.equals(TextParseUtil.TAG_AT_USER)) {
+//                                Toast.makeText(view.getContext(), "点击" + data.get("nick"),
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                            if (tag.equals(TextParseUtil.TAG_USER)) {
+//                                Toast.makeText(view.getContext(), "点击" + data.get("nick"),
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                            if (tag.equals(TextParseUtil.TAG_MATCH)) {
+//                                Toast.makeText(view.getContext(), "点击" + data.get("text"),
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                }
+//            }, new AsyncRichTextParser.ParseListener() {
+//                @Override
+//                public void onParseFinished(final SpannableStringBuilder stringBuilder) {
+//                    Log.e("pangff","stringBuilder.length():"+stringBuilder.length());
+//                    tvRich.setText(stringBuilder);
+//                    tvRich.setMovementMethod(new LinkTouchMovementMethod());
+//                }
+//            });
         }
     }
 }

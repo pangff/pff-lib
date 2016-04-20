@@ -21,15 +21,18 @@ public class EmojiParse extends BaseParse {
         int _index = 0;
         char charArray[] = str.toCharArray();
         for (char c : charArray) {
-            Drawable drawable = EmojiDrawableUtil.getInstance().getEmojiDrawableByCode(c);
-            if (drawable != null) {
-                int drawableW =
-                        drawable.getIntrinsicWidth() * contentLineHeight / drawable
-                                .getIntrinsicHeight();
-                drawable.setBounds(0, 0, drawableW, contentLineHeight);
-                ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE);
-                spannableString.setSpan(span, _index, _index + 1,
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            int position = EmojiDrawableUtil.getInstance().getPositionByCode(c);
+            if(position!=-1){
+                Drawable drawable = EmojiDrawableUtil.getInstance().getEmojiDrawable(position);
+                if (drawable != null) {
+                    int drawableW =
+                            drawable.getIntrinsicWidth() * contentLineHeight / drawable
+                                    .getIntrinsicHeight();
+                    drawable.setBounds(0, 0, drawableW, contentLineHeight);
+                    ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE);
+                    spannableString.setSpan(span, _index, _index + 1,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
             }
             _index++;
         }
