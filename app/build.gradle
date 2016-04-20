@@ -29,5 +29,5 @@ dependencies {
     compile 'com.android.support:design:23.2.1'
     compile 'com.android.support:support-vector-drawable:23.2.1'
     compile 'com.android.support:animated-vector-drawable:23.2.1'
-//    compile 'com.eftimoff:android-pathview:1.0.8@aar'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
 }

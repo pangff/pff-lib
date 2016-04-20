@@ -11,6 +11,7 @@ import com.pffair.android_libs.rich_text.parse.TopicParse;
 import com.pffair.android_libs.rich_text.parse.UserParse;
 
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,6 +65,8 @@ public class TextParseUtil {
 
     public static SpannableStringBuilder parseText(String originRichText, int contentLineHeight,
             SpanClickListener spanClickListener) throws RuntimeException{
+
+        long startTime = System.currentTimeMillis();
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
         originRichText = originRichText.replaceAll(FLAG_NEW_LINE_R_N, FLAG_NEW_LINE);
         originRichText = originRichText.replaceAll(FLAG_NEW_LINE_R, FLAG_NEW_LINE);
@@ -104,6 +107,7 @@ public class TextParseUtil {
                 }
             }
         }
+        Log.e("pangff","userTime=="+(System.currentTimeMillis()-startTime));
         return stringBuilder;
     }
 

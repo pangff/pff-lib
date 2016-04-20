@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button android:layout_width="match_parent"
+            android:id="@+id/bt_get_proxy_ip"
+            android:text="获取代理IP并验证"
+            android:layout_height="wrap_content"/>
+
+    <Button android:layout_width="match_parent"
+            android:id="@+id/bt_force_stop"
+            android:text="强行停止"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
