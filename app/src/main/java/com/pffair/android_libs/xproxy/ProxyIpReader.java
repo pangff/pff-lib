@@ -26,7 +26,7 @@ public class ProxyIpReader extends Thread{
 
     OkHttpClient mClient = new OkHttpClient.Builder().build();
 
-    //@TODO 获取IP列表的接口
+    //@TODO 获取IP列表的接口,已通，因为要提交到github删除了地址
     String url = "";
 
     private AtomicBoolean isStop = new AtomicBoolean(false);
